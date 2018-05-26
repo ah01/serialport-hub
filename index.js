@@ -23,12 +23,7 @@ if (args.help)
     return;
 }
 
-if (args.verbose)
-{
-    logger.verbose = true;
-    let package = require("./package.json");
-    logger.trace(`${package.name} ${package.version}`);
-}
+logger.verbose = args.verbose;
 
 if (args.list) {
     core.list();
@@ -40,7 +35,6 @@ if (args._.length == 0 && args.tcp === undefined)
     logger.error("No port to open");
     return;
 }
-
 
 core.run(args._);
 
