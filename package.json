@@ -1,13 +1,13 @@
 {
   "name": "serialport-hub",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.2",
+  "description": "Serial Port Hub is application for sharing communication between multiple opened serial ports.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Adam Horcica",
+    "email": "adam@horcica.cz"
+},
+  "license": "MIT",
   "dependencies": {
     "minimis": "^0.1.7",
     "colors": "^1.3.0",
