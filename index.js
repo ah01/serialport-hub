@@ -35,7 +35,7 @@ if (args.list) {
     return;
 }
 
-if (args._.length == 0) 
+if (args._.length == 0 && args.tcp === undefined) 
 {
     logger.error("No port to open");
     return;
@@ -43,6 +43,11 @@ if (args._.length == 0)
 
 
 core.run(args._);
+
+if (args.tcp !== undefined) 
+{
+    core.runTcpServer(args.tcp);
+}
 
 process.on('SIGTERM', function () {
     process.exit(0);   
