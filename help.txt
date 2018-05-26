@@ -1,1 +1,1 @@
-usage: serialport-hub [-v] <ports>
+usage: serialport-hub [-v] [-h] [-tcp <tcp-port>] <ports>

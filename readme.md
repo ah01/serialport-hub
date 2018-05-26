@@ -4,9 +4,6 @@
 
 *Aplikace pro přeposílání zpráv mezi nekolika seriovými porty.*
 
-Aplikace oetvře zadaný seznam seriových portů a přeposílá zprávy, které přijdou na libovolném z nich na všechny ostatní. Zpráva je libovolný text oddělený znakem `\n` (`\r` se ignoruje), tzn. co zpráva to řádek textu.
+Aplikace otevře zadaný seznam seriových portů a přeposílá zprávy, které přijdou na libovolném z nich na všechny ostatní. Zpráva je libovolný text oddělený znakem `\n` (`\r` se ignoruje), tzn. co zpráva to řádek textu. Pokud zpráva začíná na znak `#` považuje se za log a nepřeposílá se (pouze se vypíše do stdout).
 
-<center>
-<img alt="diagram" src="doc/diagram.png">
-</center>
-
+Aplikací je možné spustit s parameterem `--tcp <port>`, kdy se pak chová zároveň jako TCP server a přeposílá zprávy rovňež od všech TCP klientů, kteří se připojí.
