@@ -1,0 +1,49 @@
+const fs = require("fs");
+const minimist = require('minimist');
+
+const core = require("./lib/core.js");
+const logger = require("./lib/logger.js");
+
+const args = minimist(process.argv.slice(2), {
+    boolean: ["v", "h", "l"],
+    alias: {
+        "h": "help",
+        "v": "verbose",
+        "l": "list"
+    }
+});
+
+if (args.help) 
+{
+    console.log(fs.readFileSync("help.txt", {encoding: "utf8"}));
+    
+    let package = require("./package.json");
+    console.log(`\nVersion: ${package.version}`);
+
+    return;
+}
+
+if (args.verbose)
+{
+    logger.verbose = true;
+    let package = require("./package.json");
+    logger.trace(`${package.name} ${package.version}`);
+}
+
+if (args.list) {
+    core.list();
+    return;
+}
+
+if (args._.length == 0) 
+{
+    logger.error("No port to open");
+    return;
+}
+
+
+core.run(args._);
+
+process.on('SIGTERM', function () {
+    process.exit(0);   
+});
